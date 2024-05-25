@@ -16,7 +16,7 @@ train_dataloader = dict(
         data_root=data_root,
         metainfo=metainfo,
         ann_file="annotations_coco_format/manga109s_coco_90train.json",
-        data_prefix=dict(img="images/"),
+        data_prefix=dict(img="/"),
     ),
 )
 val_dataloader = dict(
@@ -24,7 +24,7 @@ val_dataloader = dict(
         data_root=data_root,
         metainfo=metainfo,
         ann_file="annotations_coco_format/manga109s_coco_4val.json",
-        data_prefix=dict(img="images/"),
+        data_prefix=dict(img="/"),
     )
 )
 test_dataloader = val_dataloader
