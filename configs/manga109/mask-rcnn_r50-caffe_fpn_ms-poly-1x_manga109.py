@@ -5,7 +5,7 @@ model = dict(
     roi_head=dict(bbox_head=dict(num_classes=4), mask_head=dict(num_classes=4))
 )
 
-data_root = "data/manga109/"
+data_root = "data/Manga109s/"
 metainfo = {
     "classes": ("body", "face", "frame", "text"),
 }
