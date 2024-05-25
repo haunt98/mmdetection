@@ -1,8 +1,5 @@
 # https://mmdetection.readthedocs.io/en/latest/user_guides/train.html#prepare-the-customized-dataset
-_base_ = [
-    "../_base_/datasets/coco_detection.py",
-    "../yolox/yolox_tiny_8xb8-300e_coco.py",
-]
+_base_ = "../yolox/yolox_tiny_8xb8-300e_coco.py"
 
 
 model = dict(bbox_head=dict(num_classes=4))
