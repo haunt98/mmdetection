@@ -1,4 +1,8 @@
-_base_ = ["../yolox/yolox_tiny_8xb8-300e_coco.py"]
+# https://mmdetection.readthedocs.io/en/latest/user_guides/train.html#prepare-the-customized-dataset
+_base_ = [
+    "../_base_/datasets/coco_detection.py",
+    "../yolox/yolox_tiny_8xb8-300e_coco.py",
+]
 
 
 model = dict(bbox_head=dict(num_classes=4))
@@ -34,8 +38,12 @@ test_dataloader = dict(
     )
 )
 
-val_evaluator = dict(ann_file=data_root + "annotations_coco_format/manga109s_coco_4val.json")
-test_evaluator = dict(ann_file=data_root + "annotations_coco_format/manga109s_coco_15test.json")
+val_evaluator = dict(
+    ann_file=data_root + "annotations_coco_format/manga109s_coco_4val.json"
+)
+test_evaluator = dict(
+    ann_file=data_root + "annotations_coco_format/manga109s_coco_15test.json"
+)
 
 # https://github.com/open-mmlab/mmdetection/tree/main/configs/yolox
 load_from = "https://download.openmmlab.com/mmdetection/v2.0/yolox/yolox_tiny_8x8_300e_coco/yolox_tiny_8x8_300e_coco_20211124_171234-b4047906.pth"
