@@ -2,16 +2,20 @@
 _base_ = "../yolox/yolox_tiny_8xb8-300e_coco.py"
 
 
-model = dict(type="YOLOX", bbox_head=dict(type="YOLOXHead", num_classes=4))
+model = dict(bbox_head=dict(num_classes=4))
 
+dataset_type = "CocoDataset"
 data_root = "data/Manga109s/"
+classes = ("body", "face", "frame", "text")
+
 metainfo = {
-    "classes": ("body", "face", "frame", "text"),
+    "classes": classes,
 }
 
 train_dataloader = dict(
     batch_size=1,
     dataset=dict(
+        type=dataset_type,
         data_root=data_root,
         metainfo=metainfo,
         ann_file="annotations_coco_format/manga109s_coco_90train.json",
@@ -20,6 +24,7 @@ train_dataloader = dict(
 )
 val_dataloader = dict(
     dataset=dict(
+        type=dataset_type,
         data_root=data_root,
         metainfo=metainfo,
         ann_file="annotations_coco_format/manga109s_coco_4val.json",
@@ -28,6 +33,7 @@ val_dataloader = dict(
 )
 test_dataloader = dict(
     dataset=dict(
+        type=dataset_type,
         data_root=data_root,
         metainfo=metainfo,
         ann_file="annotations_coco_format/manga109s_coco_15test.json",
