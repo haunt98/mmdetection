@@ -1,7 +1,7 @@
 _base_ = ["../yolox/yolox_tiny_8xb8-300e_coco.py"]
 
 
-model = dict(roi_head=dict(bbox_head=dict(num_classes=4)))
+model = dict(bbox_head=dict(num_classes=4))
 
 data_root = "data/Manga109s/"
 metainfo = {
